@@ -3,7 +3,7 @@ import Nat "mo:base/Nat";
 
 
 actor  DBank{
-  var currentValue = 300;
+  var currentValue:Nat = 300;
   currentValue := 100;
 
   let id = 123454321;
@@ -21,9 +21,17 @@ actor  DBank{
   
   public func withDraw(amount : Nat)
   {
+    let tempValue : Int = currentValue - amount;
+    if ( tempValue >= 0)
+    {
     currentValue -= amount;
-
+    
     Debug.print(debug_show(currentValue));
+    }
+    else{
+      Debug.print("There's too little in your account to make this transaction");
+    }
+
   };
 };
 
