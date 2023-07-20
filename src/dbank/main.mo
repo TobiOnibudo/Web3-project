@@ -3,7 +3,7 @@ import Nat "mo:base/Nat";
 
 
 actor  DBank{
-  var currentValue:Nat = 300;
+  stable var currentValue:Nat = 300;
   currentValue := 100;
 
   let id = 123454321;
